@@ -133,7 +133,7 @@ namespace MlsPropertyAnalysis
                 var filtered = zipCodeGrades.Grades.Select(g => g).Where(g => g.Grade <= MinimumAcceptableNeighborhoodGrade).ToList();
 
                 // find out if any of the grades match the city name if they do return
-                if(filtered.Any(g => g.Cities.Any(c => c == city)))
+                if(filtered.Any(g => g.Cities.Any(c => c.Trim().ToLower() == city.Trim().ToLower())))
                 {
                     return true;
                 }
